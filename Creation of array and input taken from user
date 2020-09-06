@@ -14,12 +14,12 @@ int main(){
 	{
 		printf("%d\n",a[i]);
 	}
-}
-    else
+        }
+        else
 	{
 	printf("Invalid size of array");
 
-}
+        }
 	return 0;
 
 }
