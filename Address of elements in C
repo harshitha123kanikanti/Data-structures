@@ -1,0 +1,26 @@
+#include<stdio.h>
+int main()
+{
+	int a[2][2]={4,5,6,7},i,j;
+	int *p;
+	p=&a[0][0];
+	printf("ELements in the array:");
+	for(i=0;i<2;i++)
+	{
+		printf("\n");
+		for(j=0;j<2;j++)
+		{
+			printf("%d\t",a[i][j]);
+		}
+	}
+	printf("\naddress of each element:");
+	for(i=0;i<2;i++)
+	{
+		printf("\n");
+		for(j=0;j<2;j++)
+		{
+			printf("%d\t",&a[i][j]);
+		}
+	}
+	return 0;
+}
