@@ -22,5 +22,15 @@ int main()
 			printf("%d\t",&a[i][j]);
 		}
 	}
+	//using pointer
+	printf("now using pointer printing the integer values:\n");
+	for(i=0;i<2;i++)
+	{
+		printf("\n");
+		for(j=0;j<2;j++)
+		{
+			printf("%d\t",*(a[i]+j));
+			};
+        }
 	return 0;
 }
