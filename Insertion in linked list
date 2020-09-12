@@ -1,0 +1,102 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+	int data;
+	struct node* next;
+};
+    struct node* first;
+    struct node* second;
+    struct node* third;
+    struct node* temp;
+    int count=0,pos,i=1;
+void beginning(struct node* newnode){
+	newnode=(struct node*)malloc(sizeof(struct node));
+	printf("Enter data for beginning node:");
+	scanf("%d",&newnode->data);
+	newnode->next=first;
+	first=newnode;
+	printf("Node inserted succesfully at beginning!!\n");
+
+}
+void end(struct node* newnode){
+	newnode=(struct node*)malloc(sizeof(struct node));
+	printf("Enter data to be entered at end:");
+	scanf("%d",&newnode->data);
+	newnode->next=NULL;
+	temp=first;
+	while(temp->next!=NULL){
+		temp=temp->next;
+	}
+	temp->next=newnode;
+	printf("Node inserted succesfully at end!!\n");
+}
+void specific(struct node* newnode){
+    printf("Enter the position where you want to add node:");
+	scanf("%d",&pos);
+	temp=first;
+    if(pos-1>count){
+    	printf("Invalid ");
+	}
+	else{
+		newnode=(struct node*)malloc(sizeof(struct node));
+		printf("enter the data in the node:");
+		scanf("%d",&newnode->data);
+		while(i<pos-1){
+			temp=temp->next;
+			i++;
+		}
+		newnode->next=temp->next;
+		temp->next=newnode;
+		printf("\ndata is entered succesfully at specific position!!");
+		
+	}
+
+
+	
+}
+	void printelements(struct node* temp){
+	while(temp!=NULL){
+		printf("\nData in each node:%d\n",temp->data);
+		temp=temp->next;
+		count++;
+	}
+	printf("total nodes:%d\n",count);
+}
+	
+
+int main(){
+	int choice;
+	first=(struct node*)malloc(sizeof(struct node));
+    second=(struct node*)malloc(sizeof(struct node));
+	third=(struct node*)malloc(sizeof(struct node));
+	printf("ENter data for first node:");
+	scanf("%d",&first->data);
+	first->next=second;
+	printf("Enter data for second node:");
+	scanf("%d",&second->data);
+	second->next=third;
+	printf("Enter data for third node:");
+	scanf("%d",&third->data);
+	third->next=NULL;
+	printf("ENter 1 for inserted at beginning, 2 for insertion at end and 3 for insertion at specific position:");
+	scanf("%d",&choice);
+	switch(choice){
+		case 1: beginning(first);
+		          printelements(first);
+		          break;
+	
+		case 2: end(first);
+		          printelements(first);
+				  break;
+        case 3: printelements(first);
+		          specific(first);
+		          count=0;
+				  printelements(first);
+				  break;
+	    default : printf("Invalid input");
+	}
+	return 0;	          
+		          
+	
+
+}
